@@ -1,17 +1,24 @@
-# ReactByMasai
-<!-- Bilore Plate  -->
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>React Intro</title>
+    <title>React State</title>
     <style>
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
         button {
-            width: 100px;
+            width: 80px;
             height: 50px;
-            background-color: red;
+            margin: 20px;
+            border-radius: 5px;
+            font-size: 12px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            border: 0.5px solid black;
         }
     </style>
 </head>
@@ -33,13 +40,12 @@
         const decrement = () => {
              setCount(count - 1);
         }
-        console.log(count)
         return (
                 <div>
+                    <h1>React Counter</h1>
                     <h1>{count}</h1>
                     <button onClick = {increment}>Increament</button>
                     <button onClick = {decrement}>decrement</button>
-                    <h1>React State Example</h1>
                 </div>
             );
         };
@@ -48,4 +54,4 @@
     </script>
 </body>
 
-</html> -->
+</html>
