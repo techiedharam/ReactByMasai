@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boilerplate Code</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            width: 100%;
+            height: 90vh;
+            text-align: center;
+            background-image: url(https://t4.ftcdn.net/jpg/05/24/62/93/360_F_524629361_AzQaPul017wJZqvKYcxZTQk6HmqZSP49.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        #birthday-container {
+            padding: 50px 250px 100px 0;  
+            /* background-color: red; */
+        }
+
+        #birthday-container h1{
+            font-size: 45px;
+        }
+        #birthday-container p{
+            font-size: 25px;
+        }
+        #birthday-container label{
+            font-size: 30px;
+            
+        }
+        #birthday-container input {
+            margin: 20px 5px;
+            padding: 12px;
+            border: 0.5px solid rgb(104, 104, 104);
+            border-radius: 10px;
+            /* background-color: transparent; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    // Code goes here
+    const App = () => {
+        const [recipientName, setrecipientName] = React.useState();
+        const [customMessage, setcustomMessage] = React.useState();
+
+        return (
+            <div id = "birthday-container">
+                <h1>Hppy Birhday {recipientName} ! </h1>
+                <p>{customMessage} </p>
+                <label for="name">Recipient's Name:</label> <br/>
+                <input name = "name" type="text" placeholder = "type name" onChange = { (event) => {
+                    // console.log(event.target.value)
+                    setrecipientName(event.target.value)
+                }} />
+                <input type="text" placeholder = "type mbirthday essage" onChange = { (event) => {
+                    // console.log(event.target.value)
+                    setcustomMessage(event.target.value)
+                }} />
+            </div>
+        )
+    }
+    const reactRoot = ReactDOM.createRoot(document.getElementById('root'));
+    reactRoot.render(<App />)
+
+</script>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boilerplate Code</title>
+    <style>
+        body {
+            width: 100%;
+            height: 80vh;
+            text-align: end;
+            background: url(https://media.istockphoto.com/id/462780351/photo/spring-weather.jpg?s=612x612&w=0&k=20&c=eGjnSXamb-pV8HXh1Hu6cuTgqVwUdk5O9G6n6Jo-YqM=);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+        }
+        div {
+            margin-top: 200px;
+            margin-right: 50px;
+        }
+        h1 {
+            font-size: 50px;
+        }
+        label {
+            font-size: 35px;
+        }
+        input {
+            font-size: 20px;
+            font-weight: 500;
+            margin-top: 10px;
+            padding: 10px;
+            margin-left: 20px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    // Code goes here
+    const App = () => {
+        const [celcious, setCelcious] = React.useState();
+        const [ fahrenheit, setFahrenheit] = React.useState();
+
+        return (
+            <div>
+                <h1>Temperature Converter  </h1>
+                <label for="celcious">Celcious : </label> 
+                <input name = "celcious" type="text" value = {celcious} placeholder = "type Celcious here" onChange = { (event) => {
+                    console.log(event.target.value)
+                    setFahrenheit((event.target.value )* 9/5 + 32)
+
+                }} />
+                <br />
+                <label for="fahrenheit">Fahrenheit :</label>
+                <input name = "fahrenheit" type="text" value = {fahrenheit} placeholder = "type farenheight here" onChange = { (event) => {
+                    // console.log(event.target.value)
+                    setCelcious((event.target.value -32) * 5/9);
+
+                }} />
+            </div>
+        )
+    }
+    const reactRoot = ReactDOM.createRoot(document.getElementById('root'));
+    reactRoot.render(<App />)
+
+</script>
+
+</html>

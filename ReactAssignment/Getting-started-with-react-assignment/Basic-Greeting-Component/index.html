@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boilerplate Code</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    // Code goes here
+    // App Component
+    const App = () => {
+        // passing props in greet component 
+        const Greeting = (props) => {
+            return (
+                <div>
+                    {props.msg} {props.name}
+                </div>
+            )
+        }
+        return (
+            <>
+                <h1>Raact Assignement</h1>
+                <Greeting msg = "Hello" name = "Alice" />
+            </>
+        );
+    };
+
+    const reactRoot = ReactDOM.createRoot(document.getElementById('root'))
+    reactRoot.render(<App />)
+</script>
+
+</html>
+
+<!-- // App Component
+const App = () => {
+    const navItems = ["Home", "About", "Services", "Blog", "Content"];
+    const footerContent = <Navbar navItems={navItems} />;
+
+    return (
+        <>
+            <h1>Nav, Content, and Footer Component</h1>
+            <Navbar navItems={navItems} />
+            <Content />
+            <Footer footerContent={footerContent} />
+        </>
+    );
+};
+
+const reactRoot = ReactDOM.createRoot(document.getElementById('root'));
+reactRoot.render(<App />); -->

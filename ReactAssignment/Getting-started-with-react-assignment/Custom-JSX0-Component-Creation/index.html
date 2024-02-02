@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Intro</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .nav-container {
+            max-width: 1500px;
+            height: 45px;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            padding-right: 50px;
+            gap: 20px;
+            background-color: cyan;
+            
+        }
+
+        .content {
+            height: 550px;
+            background-color: lightpink;
+            text-align: center;
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer {
+            max-width: 1600px;
+            height: 50px;
+            background-color: cyan;
+            text-align: center;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel"> // Step 2 : Script type should be text/babel; 
+        // Nav Bar Component 
+        const Navbar = ({ navItems }) => {
+            return (
+                <div className="nav-container">
+                    {navItems.map((item, index) => (
+                        <div key={index} className="navElement">{item}</div>
+                    ))}
+                </div>
+            );
+        }
+
+        // Content Component
+        const Content = () => {
+            return (
+                <div className="content">
+                    Content here ........
+                </div>
+            );
+        }
+
+        // Footer Component
+        const Footer = ({ footerContent }) => {
+            return (
+                <div className="footer">
+                    {footerContent}
+                </div>
+            );
+        }
+
+        // App Component
+        const App = () => {
+            const navItems = ["Home", "About", "Services", "Blog", "Content"];
+            const footerContent = <Navbar navItems={navItems} />;
+
+            return (
+                <>
+                    <h1>Nav, Content, and Footer Component</h1>
+                    <Navbar navItems={navItems} />
+                    <Content />
+                    <Footer footerContent={footerContent} />
+                </>
+            );
+        };
+
+        const reactRoot = ReactDOM.createRoot(document.getElementById('root'));
+        reactRoot.render(<App />);
+    </script>
+</body>
+
+</html>

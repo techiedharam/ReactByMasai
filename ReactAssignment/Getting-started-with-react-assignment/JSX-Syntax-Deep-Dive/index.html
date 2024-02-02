@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Intro</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel"> // Step 2 : Script type should be text/babel; 
+        // 1. Setup: Use the provided boilerplate to initialize your environment.
+
+        const App = () => {
+            // 2. Component Creation: Create a functional React component named JSXShowcase.
+            const JSXShowcase = () => {
+                // 3. Element Rendering: Inside JSXShowcase, render a variety of HTML elements (e.g., <div>, <p>, <button>) using JSX.
+                const greet = () => {
+                    alert("Hello Anjali ! How are you ? ");
+                }
+                return (
+                    <div>
+                        <p>HellO JSXShowcase </p>
+                        <button onClick={greet}>Click Me</button>
+                    </div>
+                )
+            }
+
+            // Array Element used here
+            const arr = [2, 4, 6, 8, 10];
+
+            // variable used here used 
+            const isLogedin = true;
+            const CheckLogIn = ({ isLogedin }) => {
+                if (isLogedin) {
+                    return <h1>Login Successful !</h1>;
+                } else {
+                    return <h1>Please Check the Credential!</h1>;
+                }
+            };
+            return (
+                <>
+                    <h1>React State Example</h1>
+                    <JSXShowcase />
+                    <br />
+                    <div>
+                        {arr.map((element, index) => (
+
+                            <div key={index}> Array Element at index {index} : {element}</div>
+                        ))}
+                    </div>
+                    <CheckLogIn isLogedin={isLogedin} />
+                </>
+            );
+        };
+        const reactRoot = ReactDOM.createRoot(document.getElementById('root'));
+        reactRoot.render(<App />);
+    </script>
+</body>
+
+</html>

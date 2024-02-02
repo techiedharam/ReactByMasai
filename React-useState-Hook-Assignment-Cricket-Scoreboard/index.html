@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boilerplate Code</title>
+    <style>
+        body {
+            text-align: center;
+            width: 100%;
+            height: 90vh;
+            background: url(https://i2.wp.com/images.indianexpress.com/2019/10/Melbourne-Cricket-Ground-Victoria-1.jpg?strip=all);
+            background-position: right;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            padding-top: 10%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            font-size: 50px;
+        }
+        .display-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .display-container h2 {
+            font-size: 40px;
+        }
+        button {
+            padding: 10px 30px;
+            margin: 10px;
+            border-radius: 20px;
+            border: none;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.6s ease-in-out;
+        }
+
+        button:hover {
+            background-color:  #ff1d58;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    // Code goes here
+    const App = () => {
+        const [runs, setRuns] = React.useState(0)
+        const [wicket, setWickets] = React.useState(0)
+
+        const updateRuns = (additionalRun) => {
+            setRuns(runs + additionalRun)
+        }
+
+        const updateWicket = () => {
+            setWickets(wicket + 1)
+        }
+
+        return (
+            <>
+                <h1>Cricket Score Board</h1>
+                <div class="display-container">
+                    <h2>Runs : {runs} </h2>
+                    <h2>Wickets : {wicket}</h2>
+                </div>
+
+                <button onClick={() => updateRuns(4)}>Increase runs by 4</button>
+                <button onClick={() => updateRuns(8)}>Increase runs by 8</button>
+                <button onClick={() => updateRuns(3)}>Increase runs by 3</button>
+                <button onClick = {()=> wicket < 10 ? setWickets(wicket + 1) : null }>Update Wicket </button>
+                <button onClick={() => setRuns(0)}>Reset Runs </button>
+                <button onClick = {()=> setWickets(0) } >Reset Wicket </button>
+            </>
+        )
+    }
+    const reactRoot = ReactDOM.createRoot(document.getElementById('root'))
+    reactRoot.render(<App />)
+</script>
+
+</html>
